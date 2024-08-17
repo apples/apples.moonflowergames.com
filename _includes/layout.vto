@@ -1,0 +1,59 @@
+{{ set createdOn = gitDate(page, "created") |> date('HUMAN_DATE') }}
+{{ set updatedOn = gitDate(page, "modified") |> date('HUMAN_DATE') }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ if title }}{{ title }}{{ else }}{{ site.name }}{{ /if }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/simple.css" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <link rel="stylesheet" href="/css/prism.css" type="text/css">
+</head>
+<body>
+
+<header>
+  <nav>
+  <ul>
+    {{ comp.nav_link({ current_url: url, href: "https://alchemical.itch.io/", text: "itch.io", icon: "itchio" }) }}
+    {{ comp.nav_link({ current_url: url, href: "https://github.com/apples", text: "GitHub", icon: "github" }) }}
+    {{ comp.nav_link({ current_url: url, href: "https://peoplemaking.games/@apples", text: "Mastodon", icon: "mastodon" }) }}
+  </ul>
+  <ul>
+    {{ comp.nav_link({ current_url: url, href: "/", text: "Home" }) }}
+    {{ comp.nav_link({ current_url: url, href: "/articles/", text: "Articles" }) }}
+  </ul>
+  </nav>
+
+  <h1>{{ title }}</h1>
+
+</header>
+
+<main>
+
+  {{ if type == 'article' }}
+    <p class="meta">
+    {{ author }} - {{ createdOn }}
+    {{ if createdOn != updatedOn }}
+      <i>(updated {{ updatedOn }})</i>
+    {{ /if }}
+    </p>
+  {{ /if }}
+
+  {{ content }}
+
+</main>
+
+<footer>
+  {{ if author != site.author }}
+    <p>Article contents are copyright &copy; {{ author }}.</p>
+  {{ /if }}
+  <p>Site copyright &copy; 2024 {{ site.author }}.</p>
+  <p>Contact me on Discord: <code>apples0001</code></p>
+  <p><a href="/feed.rss">RSS Feed</a> • <a href="/feed.json">JSON Feed</a> • <a href="https://github.com/apples/apples.moonflowergames.com">GitHub</a></p>
+  <p><a href="/about/">About and License</a></p>
+</footer>
+
+</body>
+</html>

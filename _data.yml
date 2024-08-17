@@ -1,0 +1,11 @@
+layout: layout.vto
+metas:
+  site: =site.name
+  github: "apples"
+  lang: en
+  generator: true
+  title: =title
+site:
+  name: Apples's Orchard
+  author: Apples
+author: Apples

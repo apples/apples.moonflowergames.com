@@ -1,0 +1,16 @@
+---
+title: All Articles
+---
+
+{{ for category of search.values("category") }}
+<h2>{{ category }}</h2>
+
+<p>
+<ul>
+{{ for article of search.pages(`category=${category}`) }}
+<li><a href="{{ article.url }}">{{ article.title }}</a></li>
+{{ /for }}
+</ul>
+<p>
+
+{{ /for }}

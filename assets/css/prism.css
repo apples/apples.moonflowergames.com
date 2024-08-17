@@ -1,0 +1,184 @@
+:root {
+  --highlight-background-color: #202531;
+  --highlight-background-emph-color: #2d3444;
+  --highlight-default-color: #ffffffd9;
+  --highlight-comment-color: #cdcfd280;
+  --highlight-doccomment-color: #99b3cccc;
+  --highlight-keyword-color: #ff7085;
+  --highlight-keyword2-color: #42ffc2;
+  --highlight-control-flow-keyword-color: #ff8ccc;
+  --highlight-number-color: #a1ffe0;
+  --highlight-decorator-color: #ffb373;
+  --highlight-type-color: #8effda;
+  --highlight-type2-color: #c6ffed;
+  --highlight-function-def-color: #66e6ff;
+  --highlight-global-func-color: #a3a3f5;
+  --highlight-function-color: #57b3ff;
+  --highlight-operator-color: #abc8ff;
+  --highlight-string-color: #ffeca1;
+  --highlight-node-ref-color: #63c259;
+  --highlight-node-path-color: #b8c47d;
+  --highlight-string-name-color: #ffc2a6;
+  --highlight-member-color: #bce0ff;
+  --highlight-punctuation-color: #abc9ff;
+
+  --highlight-line-height: 1.25em;
+}
+
+pre[class*="language-"] {
+  color: var(--highlight-default-color);
+  background: var(--highlight-background-color);
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  padding: 0.5em 0;
+  margin: .5em 0;
+  overflow: auto;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"] > code {
+  display: inline-block;
+	position: relative;
+	white-space: inherit;
+  z-index: 0;
+  min-width: 100%;
+  line-height: var(--highlight-line-height);
+}
+
+pre[class*="language-"]:not(.line-numbers) > code {
+  white-space: pre-wrap;
+  padding: 0 1em;
+}
+
+/* Line numbers */
+pre[class*="language-"].line-numbers {
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers .line {
+  counter-increment: linenumber;
+}
+
+pre[class*="language-"].line-numbers .line:before {
+  width: 3em;
+  height: var(--highlight-line-height);
+  content: counter(linenumber);
+  z-index: -1;
+  color: var(--highlight-comment-color);
+  border-right: 1px solid var(--highlight-comment-color);
+  display: inline-block;
+  text-align: right;
+  padding-right: 0.8em;
+  margin-right: 0.8em;
+}
+
+/* Line highlight */
+pre[class*="language-"] .line.hl:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--highlight-line-height);
+  content: '';
+  z-index: -1;
+  background: var(--highlight-background-emph-color);
+}
+
+/* Named fence blocks */
+pre.named-fence-block {
+  padding-top: 0;
+}
+
+.named-fence-filename {
+  user-select: none;
+  padding: 0 1rem;
+  padding-bottom: 0.5rem;
+  color: var(--highlight-doccomment-color);
+}
+
+.token.comment {
+  color: var(--highlight-comment-color);
+}
+
+.token.doccomment {
+  color: var(--highlight-doccomment-color);
+}
+
+.token.function-def {
+  color: var(--highlight-function-def-color);
+}
+
+.token.global-func {
+  color: var(--highlight-global-func-color);
+}
+
+.token.function {
+  color: var(--highlight-function-color);
+}
+
+.token.boolean,
+.token.keyword {
+  color: var(--highlight-keyword-color);
+}
+
+.token.keyword2 {
+  color: var(--highlight-keyword2-color);
+}
+
+.token.control-flow {
+  color: var(--highlight-control-flow-keyword-color);
+}
+
+.token.annotation {
+  color: var(--highlight-decorator-color);
+}
+
+.token.number {
+  color: var(--highlight-number-color);
+}
+
+.token.string {
+  color: var(--highlight-string-color);
+}
+
+.token.class-name {
+  color: var(--highlight-type-color);
+}
+
+.token.node-ref {
+  color: var(--highlight-node-ref-color);
+}
+
+.token.node-path {
+  color: var(--highlight-node-path-color);
+}
+
+.token.string-name {
+  color: var(--highlight-string-name-color);
+}
+
+.token.operator {
+  color: var(--highlight-operator-color);
+}
+
+.token.member {
+  color: var(--highlight-member-color);
+}
+
+.token.punctuation {
+  color: var(--highlight-punctuation-color);
+}
+
+.token.entity {
+  cursor: help;
+}

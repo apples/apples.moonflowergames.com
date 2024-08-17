@@ -1,0 +1,9 @@
+{
+    "pasteImage.basePath": "${currentFileDir}",
+    "pasteImage.defaultName": "X",
+    "pasteImage.path": "${currentFileDir}/",
+    "pasteImage.prefix": "",
+    "editor.tabSize": 2,
+    "pasteImage.showFilePathConfirmInputBox": true,
+    "pasteImage.filePathConfirmInputBoxMode": "onlyName"
+}

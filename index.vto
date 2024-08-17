@@ -1,0 +1,15 @@
+---
+title: Apples's Orchard
+---
+
+<p>This site is currently a bit of a work-in-progress, but expect to find coding tutorials and blog posts, and a lot of stuff about Godot.</p>
+
+<p>CHECK OUT THE <a href="/articles/">ARTICLES</a>! There are {{ search.pages("type=article").length }} of them!</p>
+
+<h2>Latest Updates</h2>
+
+<ul>
+  {{ for article of search.pages("type=article", "date=desc") }}
+    <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+  {{ /for }}
+</ul>

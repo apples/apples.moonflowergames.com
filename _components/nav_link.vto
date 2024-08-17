@@ -1,0 +1,10 @@
+{{ set isExternal = href.match(/^http/) }}
+<li>
+  <a href="{{ href }}"
+    {{ if href == current_url }}class="current"{{ /if }}
+    {{ if isExternal }}target="_blank"{{ /if }}
+  >
+    {{ if icon }}{{ comp.icon({ icon }) }}{{ /if }}
+    {{ text }}
+  </a>
+</li>
