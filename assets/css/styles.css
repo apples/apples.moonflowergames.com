@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Fixedsys Excelsior';
-  src: url('/fonts/FSEX302-alt.ttf');
+  src: url('/fonts/FSEX302-alt-basic-latin.woff2');
 }
 
 :root {
