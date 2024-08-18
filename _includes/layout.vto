@@ -26,7 +26,10 @@
   </ul>
   </nav>
 
-  <h1>{{ title }}</h1>
+  <hgroup>
+    <h1>{{ title }}</h1>
+    {{ if subtitle }}<p>{{ subtitle }}</p>{{ /if }}
+  </hgroup>
 
 </header>
 

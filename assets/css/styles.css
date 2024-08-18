@@ -43,6 +43,10 @@ ol, ul {
   overflow: auto;
 }
 
+hgroup > p {
+  font-style: italic;
+}
+
 :not(pre) > code {
   padding: .1em;
   white-space: normal;
