@@ -51,7 +51,7 @@ Also relevant are `res://backgrounds` which contains the level background images
 `res://node_types/level.gd` which is the base script that all level scenes use,
 and `res://tilesets/tiles_tileset.tres` which every level uses in its tilemap.
 
-<br clear=all>
+<br class="clear-both">
 
 And finally, here's an example level scene:
 

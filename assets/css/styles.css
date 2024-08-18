@@ -112,3 +112,7 @@ img.float-left {
 .alert-note > .alert-label {
   color: var(--accent);
 }
+
+.clear-both {
+  clear: both;
+}
