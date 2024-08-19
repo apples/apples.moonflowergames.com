@@ -16,17 +16,21 @@
 <body>
 
 <header>
+
   <nav>
-  <ul>
-    {{ comp.nav_link({ current_url: url, href: "https://alchemical.itch.io/", text: "itch.io", icon: "itchio" }) }}
-    {{ comp.nav_link({ current_url: url, href: "https://github.com/apples", text: "GitHub", icon: "github" }) }}
-    {{ comp.nav_link({ current_url: url, href: "https://peoplemaking.games/@apples", text: "Mastodon", icon: "mastodon" }) }}
-  </ul>
   <ul>
     {{ comp.nav_link({ current_url: url, href: "/", text: "Home" }) }}
     {{ comp.nav_link({ current_url: url, href: "/articles/", text: "Articles" }) }}
   </ul>
   </nav>
+
+  <aside>
+  <ul>
+    {{ comp.nav_link({ current_url: url, href: "https://alchemical.itch.io/", text: "itch.io", icon: "itchio" }) }}
+    {{ comp.nav_link({ current_url: url, href: "https://github.com/apples", text: "GitHub", icon: "github" }) }}
+    {{ comp.nav_link({ current_url: url, href: "https://peoplemaking.games/@apples", text: "Mastodon", icon: "mastodon" }) }}
+  </ul>
+  </aside>
 
   <hgroup>
     <h1>{{ title }}</h1>

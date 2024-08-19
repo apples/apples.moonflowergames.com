@@ -5,6 +5,8 @@ metas:
   lang: en
   generator: true
   title: =title
+  description: =subtitle
+  image: =image
 site:
   name: Fruit of Apples
   author: Apples

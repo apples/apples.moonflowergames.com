@@ -1,11 +1,13 @@
 ---
 title: Creating a Level Manager Plugin
+subtitle: An intermediate tutorial/walkthrough of creating a level manager plugin for Godot.
+image: ./og_image.png
 tags:
   - godot
   - plugin
 ---
 
-![Level dock showing the list of levels.](level_dock_with_levels.png)
+![Splash image.](og_image.png)
 
 Scenario: You are making a game which is logically divided into "levels".
 The levels are defined by their location in the filesystem,
