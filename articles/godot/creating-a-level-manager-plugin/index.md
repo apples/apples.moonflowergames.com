@@ -37,7 +37,7 @@ a transition animation is played which loads the next level and scrolls the scre
 
 Here is what our filesystem looks like:
 
-![Filesystem tab showing a "levels" directory, containing a subdirectory for each level.](filesystem.png){.float-left}
+![Filesystem tab showing a "levels" directory, containing a subdirectory for each level.](filesystem.png){.img-float-left}
 
 The most important part of this filesystem is the `res://levels` directory.
 This directory contains several subdirectories, each one representing a level.
@@ -53,7 +53,7 @@ Also relevant are `res://backgrounds` which contains the level background images
 `res://node_types/level.gd` which is the base script that all level scenes use,
 and `res://tilesets/tiles_tileset.tres` which every level uses in its tilemap.
 
-<br class="clear-both">
+<div class="clear-both"></div>
 
 And finally, here's an example level scene:
 

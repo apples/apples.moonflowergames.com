@@ -3,12 +3,14 @@ a.gd-link {
   text-decoration: none;
 }
 
-.float-left {
+img.img-float-left {
   float: left;
-}
-
-img.float-left {
   margin-right: 1rem;
+
+  @media only screen and (max-width: 720px) {
+    float: unset;
+    margin-right: unset;
+  }
 }
 
 .meta {

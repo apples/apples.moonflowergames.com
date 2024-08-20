@@ -1,6 +1,8 @@
 
 main {
+  padding: 0 1rem;
   padding-top: 1.5rem;
+  background: #1c1b1f;
 }
 
 p {
