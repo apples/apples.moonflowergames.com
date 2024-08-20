@@ -25,6 +25,15 @@
   --highlight-line-height: 1.25em;
 }
 
+pre code {
+  font-family: var(--mono-font);
+  font-size: 16px;
+  color: var(--highlight-default-color);
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
 pre[class*="language-"] {
   color: var(--highlight-default-color);
   background: var(--highlight-background-color);
@@ -36,74 +45,65 @@ pre[class*="language-"] {
   padding: 0.5em 0;
   margin: .5em 0;
   overflow: auto;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
+
+  > code {
+    display: inline-block;
+    position: relative;
+    white-space: pre-wrap;
+    z-index: 0;
+    min-width: 100%;
+    line-height: var(--highlight-line-height);
+    padding: 0 1em;
+  }
+
+  &.line-numbers {
+    counter-reset: linenumber;
+
+    > code {
+      white-space: pre;
+      padding: 0;
+    }
+
+    .line {
+      counter-increment: linenumber;
+
+      &::before {
+        width: 3em;
+        height: var(--highlight-line-height);
+        content: counter(linenumber);
+        z-index: -1;
+        color: var(--highlight-comment-color);
+        border-right: 1px solid var(--highlight-comment-color);
+        display: inline-block;
+        text-align: right;
+        padding-right: 0.8em;
+        margin-right: 0.8em;
+      }
+
+      &.line.hl:after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: var(--highlight-line-height);
+        content: '';
+        z-index: -1;
+        background: var(--highlight-background-emph-color);
+      }
+    }
+  }
 }
 
-pre[class*="language-"] > code {
-  display: inline-block;
-	position: relative;
-	white-space: inherit;
-  z-index: 0;
-  min-width: 100%;
-  line-height: var(--highlight-line-height);
-}
-
-pre[class*="language-"]:not(.line-numbers) > code {
-  white-space: pre-wrap;
-  padding: 0 1em;
-}
-
-/* Line numbers */
-pre[class*="language-"].line-numbers {
-  counter-reset: linenumber;
-}
-
-pre[class*="language-"].line-numbers .line {
-  counter-increment: linenumber;
-}
-
-pre[class*="language-"].line-numbers .line:before {
-  width: 3em;
-  height: var(--highlight-line-height);
-  content: counter(linenumber);
-  z-index: -1;
-  color: var(--highlight-comment-color);
-  border-right: 1px solid var(--highlight-comment-color);
-  display: inline-block;
-  text-align: right;
-  padding-right: 0.8em;
-  margin-right: 0.8em;
-}
-
-/* Line highlight */
-pre[class*="language-"] .line.hl:after {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: var(--highlight-line-height);
-  content: '';
-  z-index: -1;
-  background: var(--highlight-background-emph-color);
-}
-
-/* Named fence blocks */
 pre.named-fence-block {
   padding-top: 0;
-}
 
-.named-fence-filename {
-  user-select: none;
-  padding: 0 1rem;
-  padding-bottom: 0.5rem;
-  color: var(--highlight-doccomment-color);
+  .named-fence-filename {
+    font-family: var(--mono-font);
+    user-select: none;
+    padding: 0 1rem;
+    padding-bottom: 0.5rem;
+    color: var(--highlight-doccomment-color);
+  }
 }
 
 .token.comment {
