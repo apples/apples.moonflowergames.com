@@ -51,7 +51,8 @@ body {
     bottom: 0;
     right: 0;
     min-height: 100vh;
-    background: url('/bg/noise.png');
+    background: url('/bg/noise.png'), rgb(66, 62, 75);
+    background-blend-mode: multiply;
   }
 
   > * {
