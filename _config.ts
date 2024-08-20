@@ -50,7 +50,7 @@ const markdown = {
     },
 };
 
-const site = lume({}, { markdown });
+const site = lume({ location: new URL("https://apples.moonflowergames.com/") }, { markdown });
 
 site
     .copy("assets", ".")
