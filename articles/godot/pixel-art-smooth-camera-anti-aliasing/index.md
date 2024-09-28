@@ -69,6 +69,21 @@ Please check out Picster's video for some fantastic animations and demonstration
 (Unfortunately it seems like his approach doesn't work well in Godot 4, so I changed some things.)
 :::
 
+Here's our goal: Create a SubViewport that is slightly larger than our game's resolution,
+and use the viewport's fractional position to nudge the SubViewportContainer's position to create smooth camera motion.
+
+A quick animation to demonstrate:
+
+{{ comp.video({ src: "camera_motion_illustration_window.webm", loop: true }) }}
+
+In this animation, the outer yellow rectangle is our SubViewport's rendered contents.
+The inner pink rectangle is the actual window area shown to the player.
+The SubViewport is slightly larger than the window to ensure that we don't run out of pixels to show when shifting the camera.
+
+Here's the same animation, but from a global reference frame:
+
+{{ comp.video({ src: "camera_motion_illustration.webm", loop: true }) }}
+
 First, we need to change the project setting `display/window/stretch/mode` to `canvas_items`.
 
 ![Setting stretch mode to canvas items.](stretch_mode_canvas_items.png)
@@ -80,8 +95,11 @@ This is trivial to set up with {{ comp.gddoc({ gd: "SubViewport" }) }} and {{ co
 ![Camera smoothing initial scene tree.](camera_smoothing_initial_scene_tree.png)
 
 We need to ensure that the `SubViewport` has the correct size.
+The natural assumption would be that it should match our game's resolution.
+But since we'll be moving the viewport itself (by up to half a pixel in any direction),
+the subviewport size needs to be expanded by 1 pixel in each direction (an extra 2 pixels in total).
 
-But since we'll be moving the viewport itself, the size need to be expanded by 1 pixel in each direction (an extra 2 pixels in total).
+![Exaggerated diagram of subviewport size compared to game resolution.](subviewport_size_comparison.png)
 
 Additionally, we need to set {{ comp.gddoc({ gd: "property Viewport.canvas_item_default_texture_filter" }) }} to `TEXTURE_FILTER_NEAREST`.
 This is because it doesn't inherit this value from the Project Settings.
