@@ -322,15 +322,35 @@ The UI is jittery and bad and makes me want to scream.
 
 Obviously, this is because our UI is inside our SubViewport, which we are moving around with the camera offset.
 
-To fix this, we need to move the UI layer outside of the SubViewportContainer.
+To fix this, we need to move the UI layer outside of the SubViewportContainer used for gameplay,
+and into its own SubViewport.
 
-In fact, let's go ahead and duplicate our SubViewportContainer, so that we can get the benefits of the anti-aliasing effect.
+Create a new SubViewportContainer and SubViewport in the root scene, and move the UI into this SubViewport.
 
-![SubViewportContainer duplicate.](subviewportcontainer_duplicate.png)
+![New SubViewportContainer for UI.](subviewportcontainer_ui.png)
 
-And then, we can move the UI layer into this new SubViewportContainer.
 
-{{ comp.video({ src: "subviewportcontainer_duplicate.webm" }) }}
+The `size` of the UI SubViewport should be exactly equal to the game resolution
+(it should **not** have the extra 2 pixels, since we don't need the camera motion effect).
+
+Additionally, it should have `transparent_bg` activated, so it will overlay on top of the gameplay.
+
+As with the gameplay SubViewport, it should also have `snap_2d_transforms_to_pixel` enabled,
+and `canvas_item_default_texture_filter` should be `nearest`.
+
+![UI SubViewport inspector settings.](ui_subviewport_inspector_settings.png)
+
+The new SubViewportContainer will still need the pixel anti-aliasing effect,
+so we need to set the material to use our custom shader (and set the `texture_filter` to Linear).
+
+![UI SubViewportContainer inspector settings.](ui_subviewportcontainer_inspector_settings.png)
+
+We don't need to add the script to this SubViewportContainer, since we're not using the camera motion effect.
+The anti-aliasing effect doesn't need the script, it's all done in shader.
+
+And with that, we should be done!
+
+{{ comp.video({ src: "ui_complete.webm" }) }}
 
 Perfect.
 
