@@ -19,6 +19,7 @@ import namedCodeBlocks from "npm:markdown-it-named-code-blocks";
 import container from "npm:markdown-it-container";
 import { full as emoji } from 'npm:markdown-it-emoji';
 import twemoji from 'npm:@twemoji/api';
+import toc, { linkInsideHeader } from "https://deno.land/x/lume_markdown_plugins@v0.7.1/toc.ts";
 
 import "./_plugins/prism-gdscript.js";
 import "./_plugins/prism-line-numbers.js";
@@ -61,7 +62,10 @@ site
     .use(date())
     .use(gitDate())
     .use(prism())
-    .use(inline({ copyAttributes: [/^data-/, "class"] }))
+    .use(inline({ copyAttributes: [/^data-/, "class", "role", /^aria-/] }))
+    .use(toc({
+        anchor: linkInsideHeader({ content: "#" }),
+    }))
     .use(minifyHTML({
         options: {
             keep_spaces_between_attributes: true,

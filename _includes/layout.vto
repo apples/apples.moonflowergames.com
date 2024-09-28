@@ -1,6 +1,19 @@
 {{ set createdOn = gitDate(page, "created") |> date('HUMAN_DATE') }}
 {{ set updatedOn = gitDate(page, "modified") |> date('HUMAN_DATE') }}
 
+{{ function tocList(headings) }}
+  <ul>
+  {{ for heading of headings }}
+    <li>
+      <a href="#{{ heading.slug }}">{{ heading.text }}</a>
+      {{ if heading.children.length }}
+        {{ tocList(heading.children) }}
+      {{ /if }}
+    </li>
+  {{ /for }}
+  </ul>
+{{ /function }}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +59,17 @@
       <i>(updated {{ updatedOn }})</i>
     {{ /if }}
     </p>
+  {{ /if }}
+
+  {{ if image }}
+    <img src="{{ image }}" alt="Article image.">
+  {{ /if }}
+
+  {{ if toc }}
+    <nav class="table-of-contents" aria-labelledby="table-of-contents-heading">
+      <h2 id="table-of-contents-heading">Table of Contents</h2>
+      {{ tocList(toc) }}
+    </nav>
   {{ /if }}
 
   {{ content }}

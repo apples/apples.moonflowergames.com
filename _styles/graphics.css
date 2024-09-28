@@ -5,6 +5,10 @@ img, video {
   border-radius: var(--standard-border-radius);
 }
 
+img::before {
+  outline: 2px solid red;
+}
+
 figure {
   margin: 0;
   display: block;

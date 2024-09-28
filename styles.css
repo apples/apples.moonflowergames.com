@@ -1,12 +1,14 @@
 @import 'modern-normalize.css';
 
+@import 'theme.css';
+
 @import 'headings.css';
 @import 'graphics.css';
 @import 'banner.css';
 @import 'footer.css';
 @import 'prose.css';
 @import 'code.css';
+@import 'toc.css';
 
 @import 'styles.css';
 
-@import 'theme.css';

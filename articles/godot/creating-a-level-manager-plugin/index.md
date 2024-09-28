@@ -7,7 +7,7 @@ tags:
   - plugin
 ---
 
-![Splash image.](og_image.png)
+## Introduction
 
 Scenario: You are making a game which is logically divided into "levels".
 The levels are defined by their location in the filesystem,

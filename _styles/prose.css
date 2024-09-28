@@ -29,6 +29,7 @@ button, .button, a.button {
   padding: 0.5rem 0.9rem;
   text-decoration: none;
   line-height: normal;
+  display: inline-block;
 }
 
 button:enabled:hover, .button:not([aria-disabled="true"]):hover {

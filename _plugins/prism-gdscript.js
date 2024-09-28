@@ -34,3 +34,19 @@ Prism.languages.gdscript = {
   'member': /\.[a-zA-Z_]\w*\b/,
   'punctuation': /[.:,;()[\]{}]/,
 };
+
+Prism.languages.gdshader = {
+	'doccomment': /\/\*\*.*\*\//,
+	'comment': /\/\/.*/,
+	'string': {
+		pattern: /@?(?:("|')(?:(?!\1)[^\n\\]|\\[\s\S])*\1(?!"|')|"""(?:[^\\]|\\[\s\S])*?""")/,
+		greedy: true
+	},
+	'keyword': /\b(?:true|false|void|bool|bvec2|bvec3|bvec4|int|ivec2|ivec3|ivec4|uint|uvec2|uvec3|uvec4|float|vec2|vec3|vec4|mat2|mat3|mat4|sampler2D|isampler2D|usampler2D|sampler2DArray|isampler2DArray|usampler2DArray|sampler3D|isampler3D|usampler3D|samplerCube|samplerCubeArray|flat|smooth|lowp|mediump|highp|uniform|group_uniforms|varying|const|struct|shader_type|render_mode|instance|global|if|else|for|while|do|switch|case|default|break|continue|return|discard|in|out|inout|source_color|hint_range|instance_index|hint_normal|hint_default_white|hint_default_black|hint_default_transparent|hint_anisotropy|hint_roughness_r|hint_roughness_g|hint_roughness_b|hint_roughness_a|hint_roughness_normal|hint_roughness_gray|hint_screen_texture|hint_normal_roughness_texture|hint_depth_texture|filter_nearest|filter_linear|filter_nearest_mipmap|filter_linear_mipmap|filter_nearest_mipmap_anisotropic|filter_linear_mipmap_anisotropic|repeat_enable|repeat_disable)\b/,
+	'number': [
+		/\b0b[01_]+\b|\b0x[\da-fA-F_]+\b|(?:\b\d[\d_]*(?:\.[\d_]*)?|\B\.[\d_]+)(?:e[+-]?[\d_]+)?\b/,
+		/\b(?:INF|NAN|PI|TAU)\b/
+	],
+	'operator': /->|:=|&&|\|\||<<|>>|[-+*/%&|!<>=]=?|[~^]/,
+  'punctuation': /[.:,;()[\]{}]/,
+};
