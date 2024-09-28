@@ -1,7 +1,9 @@
 export default function ({ gd }) {
-  const kind = gd.split(" ")[0];
-  const name = gd.split(" ")[1].split(".")[0];
-  const member = gd.split(" ")[1].split(".")[1];
+  const s = gd.split(" ");
+
+  const kind = s.length == 1 ? "class" : s[0];
+  const name = (s.length == 1 ? s[0] : s[1]).split(".")[0];
+  const member = (s.length == 1 ? s[0] : s[1]).split(".")[1];
 
   const isPrivate = kind == "method" && member.startsWith("_");
 

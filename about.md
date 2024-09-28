@@ -164,3 +164,9 @@ SOFTWARE.
 itch.io icon.
 
 <https://itch.io/press-kit>
+
+### Godot Press Kit
+
+Godot icon.
+
+<https://godotengine.org/press/>
