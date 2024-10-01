@@ -7,6 +7,8 @@ tags:
   - plugin
 ---
 
+## Introduction
+
 ::: note
 If you're just here to snag some code, I've made a plugin that implements this technique.
 
@@ -48,6 +50,12 @@ However, there are a few downsides to this approach:
 		Supporting multiple writing systems becomes a big pain point,
 		and it can be an accessibility issue for some people.
 
+::: note
+**I must stress:** These problems may not be *wrong* for your game!
+If you're making a hardware-accurate GameBoy style game, for example,
+then you should definitely just use the viewport scaling mode and not think about any of this!
+:::
+
 ## Problem 1 - Jittery Camera Motion
 
 The jittery camera motion is caused by the camera's position being limited to the pixel grid.
@@ -88,13 +96,13 @@ First, we need to change the project setting `display/window/stretch/mode` to `c
 
 ![Setting stretch mode to canvas items.](stretch_mode_canvas_items.png)
 
-Then, at the top level of our scene tree, we nee to implement our own sub-viewport.
+Then, at the top level of our scene tree, we need to implement our own sub-viewport.
 
 This is trivial to set up with {{ comp.gddoc({ gd: "SubViewport" }) }} and {{ comp.gddoc({ gd: "SubViewportContainer" }) }}.
 
 ![Camera smoothing initial scene tree.](camera_smoothing_initial_scene_tree.png)
 
-We need to ensure that the `SubViewport` has the correct size.
+We must ensure that the `SubViewport` has the correct size.
 The natural assumption would be that it should match our game's resolution.
 But since we'll be moving the viewport itself (by up to half a pixel in any direction),
 the subviewport size needs to be expanded by 1 pixel in each direction (an extra 2 pixels in total).
@@ -225,9 +233,9 @@ void fragment() {
 
 For posterity, here's a full breakdown of the math:
 
-:::details Shader Math Explanation
+::: details Shader Math Explanation
 
-Alright, what are our goals here?
+Here are our goals:
 
 - The interior of each subviewport pixel (texel) should be unaffected and remain a solid color.
 - The edges of each texel should be anti-aliased, that is to say, a blend of the neighboring texels.
@@ -328,7 +336,6 @@ and into its own SubViewport.
 Create a new SubViewportContainer and SubViewport in the root scene, and move the UI into this SubViewport.
 
 ![New SubViewportContainer for UI.](subviewportcontainer_ui.png)
-
 
 The `size` of the UI SubViewport should be exactly equal to the game resolution
 (it should **not** have the extra 2 pixels, since we don't need the camera motion effect).
