@@ -9,6 +9,19 @@ h2 {
   margin-top: 3rem;
 }
 
+main > h2 {
+  position: relative;
+
+  &:before {
+    content: "> ";
+
+    @media only screen and (min-width: 720px) {
+      position: absolute;
+      left: -3rem;
+    }
+  }
+}
+
 h3 {
   font-size: 2rem;
   margin-top: 3rem;

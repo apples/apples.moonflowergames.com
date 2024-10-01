@@ -13,24 +13,6 @@ img.img-float-left {
   }
 }
 
-nav h2 {
-  font-size: 1em;
-}
-
-.header-anchor {
-  font-size: 0.8em;
-}
-
-@media (hover: hover) {
-  .header-anchor {
-    opacity: 0;
-  }
-
-  :hover > .header-anchor {
-    opacity: 1;
-  }
-}
-
 .meta {
   color: var(--text-light);
   font-size: 1rem;

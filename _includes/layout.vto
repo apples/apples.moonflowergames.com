@@ -50,6 +50,16 @@
 
 </header>
 
+{{ if toc }}
+  <div class="table-of-contents-container">
+    <nav class="table-of-contents" aria-labelledby="table-of-contents-heading">
+      <h2 id="table-of-contents-heading">Table of Contents</h2>
+      {{ tocList(toc) }}
+    </nav>
+  </div>
+{{ /if }}
+
+
 <main>
 
   {{ if type == 'article' }}
@@ -59,13 +69,6 @@
       <i>(updated {{ updatedOn }})</i>
     {{ /if }}
     </p>
-
-    {{ if toc }}
-      <nav aria-labelledby="table-of-contents">
-        <h2 id="table-of-contents">Table of Contents</h2>
-        {{ tocList(toc) }}
-      </nav>
-    {{ /if }}
 
   {{ /if }}
 

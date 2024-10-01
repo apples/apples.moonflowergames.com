@@ -1,0 +1,33 @@
+
+@media only screen and (min-width: 720px) {
+  .table-of-contents-container {
+    grid-area: 2/1;
+    position: sticky;
+    align-self: start;
+    top: 0;
+    padding-left: 2rem;
+    padding-right: 3rem;
+  }
+}
+
+.table-of-contents {
+  border-bottom: 1px solid var(--text);
+}
+
+.table-of-contents h2 {
+  font-size: 1em;
+}
+
+.header-anchor {
+  font-size: 0.8em;
+}
+
+@media (hover: hover) {
+  .header-anchor {
+    opacity: 0;
+  }
+
+  :hover > .header-anchor {
+    opacity: 1;
+  }
+}
