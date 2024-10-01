@@ -4,9 +4,10 @@
     grid-area: 2/1;
     position: sticky;
     align-self: start;
+    justify-self: end;
     top: 0;
     padding-left: 2rem;
-    padding-right: 3rem;
+    padding-right: 4rem;
   }
 }
 
